@@ -49,3 +49,8 @@ next-env.d.ts
 /public/worker-*.js.map
 /public/swe-worker-*.js
 /public/swe-worker-*.js.map
+
+# SQL files and migrations (contain sensitive data)
+*.sql
+/migrations/
+/lib/*.sql
