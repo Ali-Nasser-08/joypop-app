@@ -1,9 +1,9 @@
 import { supabase } from '../supabase';
 
 /**
- * Sign in with magic link (email-based authentication)
+ * Send OTP code to email (6-digit code)
  */
-export async function signInWithMagicLink(email: string) {
+export async function sendOTP(email: string) {
     const { data, error } = await supabase.auth.signInWithOtp({
         email,
         options: {
@@ -12,7 +12,25 @@ export async function signInWithMagicLink(email: string) {
     });
 
     if (error) {
-        console.error('Error sending magic link:', error);
+        console.error('Error sending OTP:', error);
+        throw error;
+    }
+
+    return data;
+}
+
+/**
+ * Verify OTP code
+ */
+export async function verifyOTP(email: string, token: string) {
+    const { data, error } = await supabase.auth.verifyOtp({
+        email,
+        token,
+        type: 'email',
+    });
+
+    if (error) {
+        console.error('Error verifying OTP:', error);
         throw error;
     }
 
