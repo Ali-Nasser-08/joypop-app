@@ -40,10 +40,11 @@ export function Navigation() {
     const router = useRouter();
     const { isTimerActive, isCaptureActive } = useSavouring();
 
-    // Don't show navigation on login, onboarding, history, insights, settings pages
+    // Don't show navigation on login, onboarding, consent, history, insights, settings pages
     if (
         pathname === '/login' ||
         pathname === '/onboarding' ||
+        pathname === '/consent' ||
         pathname.includes('/history') ||
         pathname.includes('/insights') ||
         pathname.includes('/reflections') ||

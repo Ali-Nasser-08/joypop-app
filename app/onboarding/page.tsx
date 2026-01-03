@@ -15,19 +15,12 @@ export default function OnboardingPage() {
         if (currentStep < TOTAL_STEPS) {
             setCurrentStep(currentStep + 1);
         } else {
-            // Mark onboarding as complete and navigate to login
+            // Mark onboarding as complete and navigate to consent
             if (typeof window !== 'undefined') {
                 localStorage.setItem('joypop_onboarding_complete', 'true');
             }
-            router.push('/login');
+            router.push('/consent');
         }
-    };
-
-    const handleSkip = () => {
-        if (typeof window !== 'undefined') {
-            localStorage.setItem('joypop_onboarding_complete', 'true');
-        }
-        router.push('/login');
     };
 
     return (
@@ -37,16 +30,6 @@ export default function OnboardingPage() {
                 <div className="absolute top-20 left-10 w-96 h-96 bg-purple-500/30 rounded-full blur-3xl animate-blob" />
                 <div className="absolute top-40 right-10 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl animate-blob animation-delay-2000" />
                 <div className="absolute bottom-20 left-1/3 w-96 h-96 bg-purple-600/25 rounded-full blur-3xl animate-blob animation-delay-4000" />
-            </div>
-
-            {/* Skip Button */}
-            <div className="absolute top-6 right-6 z-20">
-                <button
-                    onClick={handleSkip}
-                    className="text-white/60 hover:text-white/90 transition-colors text-sm font-medium"
-                >
-                    Skip
-                </button>
             </div>
 
             {/* Content Container */}
