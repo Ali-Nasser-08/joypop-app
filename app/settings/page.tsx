@@ -136,8 +136,8 @@ export default function SettingsPage() {
                             {jarSkinsArray.map((skin) => (
                                 <MiniJar
                                     key={skin.id}
-                                    gradientId={`gradient-${skin.id}`}
-                                    colors={skin.colors}
+                                    svgPath={skin.svgPath}
+                                    name={skin.name}
                                     isSelected={preferences.jarSkin === skin.id}
                                     onClick={() => updateJarSkin(skin.id)}
                                 />

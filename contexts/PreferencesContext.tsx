@@ -15,7 +15,7 @@ interface PreferencesContextType {
 
 const defaultPreferences: UserPreferences = {
     savouringTimer: 30,
-    jarSkin: 'default',
+    jarSkin: 'white',
 };
 
 const PreferencesContext = createContext<PreferencesContextType | undefined>(undefined);

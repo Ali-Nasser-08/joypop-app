@@ -37,7 +37,7 @@ function getQuote(count: number, total: number): string {
 
 export function JoyJar({ stars }: JoyJarProps) {
     const { preferences } = usePreferences();
-    const selectedSkin = JAR_SKINS[preferences.jarSkin as keyof typeof JAR_SKINS] || JAR_SKINS.default;
+    const selectedSkin = JAR_SKINS[preferences.jarSkin as keyof typeof JAR_SKINS] || JAR_SKINS.white;
 
     const totalSlots = JAR_CAPACITY.total;
     const filledSlots = stars.slice(0, totalSlots);
@@ -50,61 +50,18 @@ export function JoyJar({ stars }: JoyJarProps) {
     return (
         <div className="relative w-full max-w-lg mx-auto px-6">
             {/* Jar Container - wider */}
-            <div className="relative w-full" style={{ aspectRatio: '0.8' }} suppressHydrationWarning>
-                {/* Simple 2D Jar SVG - wider */}
-                <svg
-                    viewBox="0 0 400 480"
-                    className="w-full h-full absolute inset-0 pointer-events-none"
-                    xmlns="http://www.w3.org/2000/svg"
+            <div className="relative w-full overflow-visible" style={{ aspectRatio: '0.8' }} suppressHydrationWarning>
+                {/* Jar Image Asset - scaled larger to encompass stars */}
+                <img
+                    src={selectedSkin.svgPath}
+                    alt="Joy Jar"
+                    className="w-full h-full absolute inset-0 pointer-events-none object-contain"
+                    style={{
+                        transform: 'scale(1.15)',
+                        transformOrigin: 'center center'
+                    }}
                     suppressHydrationWarning
-                >
-                    {/* Jar opening - wider ellipse at top */}
-                    <ellipse
-                        cx="200"
-                        cy="60"
-                        rx="100"
-                        ry="15"
-                        fill="rgba(139, 92, 246, 0.2)"
-                        stroke="url(#simpleGradient)"
-                        strokeWidth="5"
-                    />
-
-                    {/* Left side of jar */}
-                    <path
-                        d="M 100 60 L 85 80 Q 70 100, 70 140 L 70 400 Q 70 430, 90 445"
-                        fill="none"
-                        stroke="url(#simpleGradient)"
-                        strokeWidth="5"
-                        strokeLinecap="round"
-                    />
-
-                    {/* Right side of jar */}
-                    <path
-                        d="M 300 60 L 315 80 Q 330 100, 330 140 L 330 400 Q 330 430, 310 445"
-                        fill="none"
-                        stroke="url(#simpleGradient)"
-                        strokeWidth="5"
-                        strokeLinecap="round"
-                    />
-
-                    {/* Bottom of jar */}
-                    <path
-                        d="M 90 445 Q 110 460, 140 465 L 260 465 Q 290 460, 310 445"
-                        fill="none"
-                        stroke="url(#simpleGradient)"
-                        strokeWidth="5"
-                        strokeLinecap="round"
-                    />
-
-                    {/* Gradient definition */}
-                    <defs>
-                        <linearGradient id="simpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor={selectedSkin.colors.start} />
-                            <stop offset="50%" stopColor={selectedSkin.colors.middle} />
-                            <stop offset="100%" stopColor={selectedSkin.colors.end} />
-                        </linearGradient>
-                    </defs>
-                </svg>
+                />
 
                 {/* Star Grid - contained within wider jar */}
                 <div
