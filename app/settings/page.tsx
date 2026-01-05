@@ -67,7 +67,7 @@ export default function SettingsPage() {
                         <Sparkles className="w-6 h-6 text-yellow-300 flex-shrink-0 mt-1" />
                         <div>
                             <p className="text-white/90 text-lg italic mb-2">
-                                "Joy isn't found in grand moments—it's collected in the small, beautiful details we choose to notice."
+                                "Joy isn't found in grand moments. It grows in the small, beautiful details we choose to notice."
                             </p>
                             <p className="text-white/60 text-sm">— The Creator of JoyPop</p>
                         </div>
@@ -197,7 +197,7 @@ export default function SettingsPage() {
                         <p className="text-white/70 text-sm mb-2">
                             A bite-sized wellbeing app for collecting moments of joy, gratitude, and kindness.
                         </p>
-                        <p className="text-white/50 text-xs">Version 1.0.0</p>
+                        <p className="text-white/50 text-xs">Version 0.1.0-beta</p>
                     </div>
                 </div>
 
