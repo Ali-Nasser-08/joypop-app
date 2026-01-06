@@ -7,19 +7,19 @@ export const STAR_CONFIG = {
         color: 'pink',
         icon: '🌸',
         label: 'Savouring',
-        image: '/assets/savor-star.png',
+        image: '/assets/savouring-star-big.png',
     },
     kindness: {
         color: 'purple',
         icon: '❤️',
         label: 'Kindness',
-        image: '/assets/kindness-star.png',
+        image: '/assets/kindness-star-big.png',
     },
     gratitude: {
         color: 'yellow',
         icon: '🙏',
         label: 'Gratitude',
-        image: '/assets/gratitude-star.png',
+        image: '/assets/gratitude-star-big.png',
     },
 } as const;
 
